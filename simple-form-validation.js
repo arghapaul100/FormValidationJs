@@ -45,7 +45,7 @@ class SimpleFormValidation
 			};
 	}
 
-	validateRezex(value, rezex) 
+	validateRezex(value, regex) 
 	{
 		
 	 	if(regex.test(value))
