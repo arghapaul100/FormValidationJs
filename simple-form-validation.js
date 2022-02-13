@@ -11,7 +11,12 @@ class SimpleFormValidation
 				{
 					item.nextElementSibling.remove();
 				}
-				
+			})
+			item.addEventListener('change',function(){
+				if(item.nextElementSibling !== null)
+				{
+					item.nextElementSibling.remove();
+				}
 			})
 		})
 		for(var i = 0; i < elements.length; i++)
