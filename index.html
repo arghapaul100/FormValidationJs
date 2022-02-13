@@ -8,12 +8,25 @@
 	<link rel="stylesheet" type="text/css" href="simple-form-validation.css">
 </head>
 <body>
-	<form id="form_sample">
+	<form id="form_sample" novalidate>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="form-group">
-						<input type="text" name="" class="simple-form-validation form-control">
+						<input type="text" name="name" placeholder="Name" class="simple-form-validation form-control">
+					</div>
+					<div class="form-group">
+						<input type="email" name="email" placeholder="Email" class="simple-form-validation form-control">
+					</div>
+					<div class="form-group">
+						<select class="form-control simple-form-validation" name="txt_choose">
+							<option value="">Choose one</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-block btn-primary" type="submit">Submit</button>
 					</div>
 				</div>
 			</div>
@@ -24,4 +37,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="simple-form-validation.js"></script>
+
+<script type="text/javascript">
+
+	$('#form_sample').on('submit',function(e){
+		e.preventDefault();
+
+		var validation = new SimpleFormValidation();
+		var response = validation.validate_form('#form_sample','.simple-form-validation');
+
+		if(response != true)
+		{
+			$(`<span class='text-danger'>${response.message}</span>`).insertAfter(response.element);
+			response.element.focus();
+		}
+	})
+
+</script>
 </html>
