@@ -6,18 +6,24 @@ class SimpleFormValidation
 		var flag = 0;
 		var responseText = "";
 		elements.forEach(function(item){
-			item.addEventListener('keyup',function(){
-				if(item.nextElementSibling !== null)
-				{
-					item.nextElementSibling.remove();
-				}
-			})
-			item.addEventListener('change',function(){
-				if(item.nextElementSibling !== null)
-				{
-					item.nextElementSibling.remove();
-				}
-			})
+			if(item.nodeName.toLowerCase() == 'input' && item.type == 'file' || item.nodeName.toLowerCase() == 'select')
+			{
+				item.addEventListener('change',function(){
+					if(item.nextElementSibling !== null)
+					{
+						item.nextElementSibling.remove();
+					}
+				})
+			}
+			else
+			{
+				item.addEventListener('keyup',function(){
+					if(item.nextElementSibling !== null)
+					{
+						item.nextElementSibling.remove();
+					}
+				})
+			}
 		})
 		for(var i = 0; i < elements.length; i++)
 		{
