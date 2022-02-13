@@ -26,7 +26,7 @@ class SimpleFormValidation
 			{
 				var value = elements[i].value;
 				var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-				var isValid = this.validateEmail(value, regex);
+				var isValid = this.validateRezex(value, regex);
 				if(!isValid)
 				{
 					flag = elements[i];
