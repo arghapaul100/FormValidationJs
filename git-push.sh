@@ -8,4 +8,4 @@ read message
 git commit -m "${message}"
 git push origin master 
 echo "Git Push Successfuly Completed"
-sleep 5s
+sleep 3s
